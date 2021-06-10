@@ -22,10 +22,14 @@ void blink(int time){
 }
 
 void setup() {
+  pinMode(LED_PIN, OUTPUT);
   Serial.begin(9600);
   while(!Serial);
   Serial.println("Serial ready, starting BMP...");
-  blink(500);
+  for(int i = 0; i < 5; i ++){
+    blink(500);
+    delay(500);
+  }
 
 
   if(!bmp.begin(0x76)){
